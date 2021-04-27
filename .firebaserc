@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "angular-todo-359c9": {
+      "hosting": {
+        "toDo-List": [
+          "angular-todo-359c9"
+        ]
+      }
+    }
+  }
+}
