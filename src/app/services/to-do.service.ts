@@ -3,8 +3,6 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/fire
 import { Observable } from 'rxjs';
 import { ToDo } from '../models/todo.model';
 import {map} from 'rxjs/operators'
-import { rejects } from 'node:assert';
-import { resolve } from 'node:path';
 
 @Injectable({
   providedIn: 'root'
@@ -31,10 +29,10 @@ export class ToDoService {
     });
   }
 
-  onAddToDo(toDo: ToDo): Promise<void>{
+  onAddToDo(toDo: ToDo, toDoId: string): Promise<void>{
     return new Promise(async (resolve,reject) => {
       try{
-        const id = this.angularFirestore.createId();
+        const id = toDoId || this.angularFirestore.createId();
         const data = {id, ...toDo};
         const results = await this.toDoCollection.doc(id).set(data);
         resolve(results);
