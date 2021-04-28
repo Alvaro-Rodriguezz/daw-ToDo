@@ -9,6 +9,7 @@ import { HistoricalComponent } from './pages/historical/historical.component';
 import { AngularFireModule} from '@angular/fire';
 import {AngularFirestore} from '@angular/fire/firestore'
 import { environment } from 'src/environments/environment';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent
@@ -16,7 +17,8 @@ import { environment } from 'src/environments/environment';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig)
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    BrowserAnimationsModule
   ],
   providers: [AngularFirestore],
   bootstrap: [AppComponent]

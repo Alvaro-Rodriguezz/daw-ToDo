@@ -1,1 +1,5 @@
 <p *ngFor="let item of (todo | async)">{{item.name}}</p>
+<div>
+	<span>Grid Size (px): </span><b class="gridSizeValue">{{gridsize.value}}</b>
+</div>
+<mat-slider #gridsize (change)="updateSetting($event)" step="5" min="0" max="100" [value]="gridsize"></mat-slider>

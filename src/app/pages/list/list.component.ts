@@ -18,4 +18,8 @@ export class ListComponent implements OnInit {
     console.log(this.todo)
   }
 
+  gridsize: number = 30;
+  updateSetting(event) {
+    this.gridsize = event.value;
+  }
 }
