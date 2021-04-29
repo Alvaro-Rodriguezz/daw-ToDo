@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {FormControl, Validators} from '@angular/forms';
+
 
 @Component({
   selector: 'app-add',
@@ -8,6 +10,9 @@ import { Component, OnInit } from '@angular/core';
 export class AddComponent implements OnInit {
 
   constructor() { }
+
+  statusControl = new FormControl('', Validators.required);
+  status: string[] = ["En proceso","Pendiente"];
 
   ngOnInit(): void {
   }
