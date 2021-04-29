@@ -24,8 +24,8 @@
     </mat-error>
   </mat-form-field>
   <div>
-    <span>Prioridad: </span><b class="gridSizeValue">{{gridsize.value}}</b><br>
-    <mat-slider #gridsize (change)="updateSetting($event)" step="5" min="0" max="100" [value]="gridsize"></mat-slider>
+    <span>Prioridad: </span><b class="gridSizeValue">{{priorityNumber}}</b><br>
+    <mat-slider (input)="priorityNumber = $event.value"  [value]="priorityNumber" step="5" min="0" max="100" ></mat-slider>
   </div>
   <!-- add style="pointer-events: none;" to disable slider -->
   <!-- https://stackblitz.com/edit/angular-fkzv3z?file=src%2Fapp%2Fslider-formatting-example.html -->

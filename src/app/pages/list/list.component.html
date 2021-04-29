@@ -1,15 +1,8 @@
 <div class="container">
 
-  <div>
-    <span>Prioridad: </span><b class="gridSizeValue">{{gridsize.value}}</b>
-  </div>
-  <!-- add style="pointer-events: none;" to disable slider -->
-  <!-- https://stackblitz.com/edit/angular-fkzv3z?file=src%2Fapp%2Fslider-formatting-example.html -->
-  <mat-slider #gridsize (change)="updateSetting($event)" step="5" min="0" max="100" [value]="gridsize"></mat-slider>
-  <button class="btn btn-danger">test</button>
   <mat-card *ngFor="let item of (todo | async)" style="margin-top: 20px; position: relative;">{{item.name}}
-
-      <mat-button-toggle-group name="fontStyle" aria-label="Font Style" style="position: absolute; right: 0;">
+    <button class="btn btn-primary"  [routerLink]="['/details']">aaaa</button>
+      <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
         <mat-button-toggle value="bold">En proceso</mat-button-toggle>
         <mat-button-toggle value="italic">Pendiente</mat-button-toggle>
         <mat-button-toggle value="underline">Terminado</mat-button-toggle>
@@ -17,4 +10,5 @@
   </mat-card>
   <br>
 
+  <button class="btn btn-primary add" routerLink="/add">Add</button>
 </div>

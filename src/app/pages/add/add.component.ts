@@ -42,22 +42,25 @@ export class AddComponent implements OnInit {
   ]);
 
 
-  gridsize: number = 0;
-  updateSetting(event) {
-    this.gridsize = event.value;
-  }
+  priorityNumber: number = 0;
+
 
   onAddToDo(){
     if(this.descriptionFormControl.valid && this.nameFormControl.valid && this.statusControl.valid){
       this.todo.name = this.nameFormControl.value;
       this.todo.description = this.descriptionFormControl.value;
       this.todo.status = this.statusControl.value.name;
-      this.todo.date = this.descriptionFormControl.value;
+      this.todo.date = new Date().toUTCString();
       console.log("")
       console.log(this.statusControl.value.name);
       this.toDoService.onAddToDo(this.todo, null);
+      this.nameFormControl.reset();
+      this.descriptionFormControl.reset();
+      this.statusControl.reset();
+      this.priorityNumber = 0;
       return;
     }
+    console.log(new Date().toLocaleDateString())
     console.log(Math.floor(Date.now()/1000));
 
 
