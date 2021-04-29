@@ -33,6 +33,8 @@ export class ToDoService {
     return new Promise(async (resolve,reject) => {
       try{
         const id = toDoId || this.angularFirestore.createId();
+        console.log(id);
+
         const data = {id, ...toDo};
         const results = await this.toDoCollection.doc(id).set(data);
         resolve(results);

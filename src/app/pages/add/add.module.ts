@@ -3,22 +3,20 @@ import { CommonModule } from '@angular/common';
 
 import { AddRoutingModule } from './add-routing.module';
 import { AddComponent } from './add.component';
-import { MatSliderModule } from '@angular/material/slider';
-import {MatCardModule} from '@angular/material/card';
-import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { MatSliderModule } from '@angular/material/slider';
 @NgModule({
   declarations: [AddComponent],
   imports: [
     CommonModule,
     AddRoutingModule,
-    MatSliderModule,
-    MatCardModule,
-    MatButtonToggleModule,
+    MatInputModule,
     MatSelectModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSliderModule,
   ]
 })
 export class AddModule { }
