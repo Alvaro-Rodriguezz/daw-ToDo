@@ -1,7 +1,7 @@
 <div class="container">
 
   <mat-card *ngFor="let item of (todo | async)" style="margin-top: 20px; position: relative;">{{item.name}}
-    <button class="btn btn-primary"  [routerLink]="['/details']">aaaa</button>
+    <button class="btn btn-primary"  [routerLink]="['/details', item.id]">aaaa</button>
       <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
         <mat-button-toggle value="bold">En proceso</mat-button-toggle>
         <mat-button-toggle value="italic">Pendiente</mat-button-toggle>
