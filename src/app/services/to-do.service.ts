@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { ToDo } from '../models/todo.model';
-import {map} from 'rxjs/operators'
+import {map, take} from 'rxjs/operators'
 
 @Injectable({
   providedIn: 'root'
@@ -50,4 +50,14 @@ export class ToDoService {
       map(actions => actions.map(a => a.payload.doc.data() as ToDo))
     )
   }
+
+  getToDoId(id: string): Observable<ToDo> {
+    return this.toDoCollection.doc<ToDo>(id).valueChanges().pipe(
+        take(1),
+        map(toDo => {
+          toDo.id = id;
+            return toDo;
+        })
+    );
+}
 }
