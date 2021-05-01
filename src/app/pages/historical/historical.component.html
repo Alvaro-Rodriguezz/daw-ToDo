@@ -1,1 +1,9 @@
-<p>historical works!</p>
+<div class="container">
+  <mat-card *ngFor="let item of (todo | async)"  style="margin-top: 20px; position: relative;">{{item.name}}
+    <button class="btn btn-primary"  [routerLink]="['/details', item.id]">Details</button>
+
+  </mat-card>
+  <br>
+
+  <button class="btn btn-primary add" routerLink="/add">Add</button>
+</div>

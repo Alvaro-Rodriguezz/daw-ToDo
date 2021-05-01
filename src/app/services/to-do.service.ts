@@ -29,7 +29,7 @@ getToDoNotDone(): Observable<ToDo[]>{
 
 getToDoDone(): Observable<ToDo[]>{
   this.toDoCollection = this.angularFirestore.collection<ToDo>('toDo', ref => {
-      return ref.where('status', '!=', 'Done');
+      return ref.where('status', '==', 'Done');
   });
   console.log(this.toDoCollection);
   
@@ -69,5 +69,15 @@ getEquipoId(id: string): Observable<ToDo> {
   deleteEquipo(id: string): Promise<void>{
       //eliminar jugadores
       return this.toDoCollection.doc(id).delete();
+  }
+
+  getToDoId(id: string): Observable<ToDo> {
+    return this.toDoCollection.doc<ToDo>(id).valueChanges().pipe(
+        take(1),
+        map(toDo => {
+          toDo.id = id;
+            return toDo;
+        })
+    );
   }
 }
