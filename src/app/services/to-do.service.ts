@@ -62,11 +62,7 @@ getEquipoId(id: string): Observable<ToDo> {
   }
 
 
-  addEquipo(todo: ToDo): any{
-      return this.toDoCollection.add(todo);
-  }
-
-  deleteEquipo(id: string): Promise<void>{
+  deleteToDo(id: string): Promise<void>{
       //eliminar jugadores
       return this.toDoCollection.doc(id).delete();
   }
@@ -79,5 +75,18 @@ getEquipoId(id: string): Observable<ToDo> {
             return toDo;
         })
     );
+  }
+
+  onAddToDo(toDo: ToDo, toDoId: string): Promise<void>{
+    return new Promise(async (resolve,reject) => {
+      try{
+        const id = toDoId || this.angularFirestore.createId();
+        const data = {id, ...toDo};
+        const results = await this.toDoCollection.doc(id).set(data);
+        resolve(results);
+      } catch (e){
+        reject(e.message);
+      }
+    })
   }
 }
