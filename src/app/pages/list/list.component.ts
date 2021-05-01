@@ -26,7 +26,7 @@ export class ListComponent implements OnInit {
     todo.status = val;
     console.log(todo);
     
-    //this.toDoService.onAddToDo(todo, id);
+    this.toDoService.onAddToDo(todo, id);
     console.log("group")
   }
 }
