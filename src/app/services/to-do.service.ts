@@ -14,50 +14,60 @@ export class ToDoService {
   private toDoCollection: AngularFirestoreCollection<ToDo>;
 
   constructor(private angularFirestore: AngularFirestore) {
-    this.toDoCollection = angularFirestore.collection<ToDo>('toDo');
-    this.getToDo();
-  }
+    this.toDoCollection = this.angularFirestore.collection<ToDo>('toDo');
+    this.todo = this.getData();
+}
 
-  onDeleteToDo(id: string): Promise<void>{
-    return new Promise(async (resolve,reject) => {
-      try{
-        const result = await this.toDoCollection.doc(id).delete();
-        resolve(result)
-      } catch(e){
-        reject(e.message);
-      }
+getToDoNotDone(): Observable<ToDo[]>{
+    this.toDoCollection = this.angularFirestore.collection<ToDo>('toDo', ref => {
+        return ref.where('status', '!=', 'Done');
     });
-  }
+    console.log(this.toDoCollection);
+    
+    return this.getData();
+}
 
-  onAddToDo(toDo: ToDo, toDoId: string): Promise<void>{
-    return new Promise(async (resolve,reject) => {
-      try{
-        const id = toDoId || this.angularFirestore.createId();
-        console.log(id);
-        toDo.id = id;
-        console.log(toDo);
+getToDoDone(): Observable<ToDo[]>{
+  this.toDoCollection = this.angularFirestore.collection<ToDo>('toDo', ref => {
+      return ref.where('status', '!=', 'Done');
+  });
+  console.log(this.toDoCollection);
+  
+  return this.getData();
+}
 
-        const results = await this.toDoCollection.doc(id).set(toDo);
-        resolve(results);
-      } catch (e){
-        reject(e.message);
-      }
+getData(){
+    return this.toDoCollection.snapshotChanges().pipe(
+      map(actions => {
+        return actions.map(a => {
+          const data = a.payload.doc.data();
+          const id = a.payload.doc.id;
+          return { id, ...data};
+      });
     })
-  }
+  );
+}
 
-  private getToDo(): void{
-    this.todo = this.toDoCollection.snapshotChanges().pipe(
-      map(actions => actions.map(a => a.payload.doc.data() as ToDo))
-    )
-  }
-
-  getToDoId(id: string): Observable<ToDo> {
+getEquipoId(id: string): Observable<ToDo> {
     return this.toDoCollection.doc<ToDo>(id).valueChanges().pipe(
         take(1),
-        map(toDo => {
-          toDo.id = id;
-            return toDo;
+        map(todo => {
+          todo.id = id;
+            return todo;
         })
     );
-}
+  }
+  getTodo(){
+      return this.todo;
+  }
+
+
+  addEquipo(todo: ToDo): any{
+      return this.toDoCollection.add(todo);
+  }
+
+  deleteEquipo(id: string): Promise<void>{
+      //eliminar jugadores
+      return this.toDoCollection.doc(id).delete();
+  }
 }

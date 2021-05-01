@@ -14,8 +14,19 @@ export class ListComponent implements OnInit {
   todo: Observable<ToDo[]>
 
   ngOnInit(): void {
-    this.todo = this.toDoService.todo;
+    this.todo = this.toDoService.getToDoNotDone();
     console.log(this.todo)
+    this.selectedVal ='option1';
   }
 
+  public selectedVal: string;
+
+  public onValChange(val: string, todo:ToDo, id: string) {
+    this.selectedVal = val;
+    todo.status = val;
+    console.log(todo);
+    
+    //this.toDoService.onAddToDo(todo, id);
+    console.log("group")
+  }
 }
