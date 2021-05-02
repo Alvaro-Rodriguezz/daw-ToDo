@@ -23,7 +23,7 @@ getToDoNotDone(): Observable<ToDo[]>{
         return ref.where('status', '!=', 'Done');
     });
     console.log(this.toDoCollection);
-    
+
     return this.getData();
 }
 
@@ -32,7 +32,7 @@ getToDoDone(): Observable<ToDo[]>{
       return ref.where('status', '==', 'Done');
   });
   console.log(this.toDoCollection);
-  
+
   return this.getData();
 }
 
@@ -48,15 +48,6 @@ getData(){
   );
 }
 
-getEquipoId(id: string): Observable<ToDo> {
-    return this.toDoCollection.doc<ToDo>(id).valueChanges().pipe(
-        take(1),
-        map(todo => {
-          todo.id = id;
-            return todo;
-        })
-    );
-  }
   getTodo(){
       return this.todo;
   }
@@ -81,6 +72,8 @@ getEquipoId(id: string): Observable<ToDo> {
     return new Promise(async (resolve,reject) => {
       try{
         const id = toDoId || this.angularFirestore.createId();
+        toDo.id = id;
+        console.log(id)
         const data = {id, ...toDo};
         const results = await this.toDoCollection.doc(id).set(data);
         resolve(results);
