@@ -1,20 +1,98 @@
-<div class="container">
+<!-- <div class="container">
   <mat-card *ngFor="let item of (todo | async)"  style="margin-top: 20px; position: relative;">{{item.name}}
     <button class="btn btn-primary"  [routerLink]="['/details', item.id]">Details</button>
     <button class="btn btn-primary"  [routerLink]="['/edit', item.id]">Edit</button>
     <mat-button-toggle-group #group="matButtonToggleGroup" [value]="item.status" (change)="onValChange(group.value, item, item.id)">
-        <mat-button-toggle value="In progress">
-          In progress
-        </mat-button-toggle>
-        <mat-button-toggle value="Pending">
-          Pending
-        </mat-button-toggle>
-        <mat-button-toggle value="Done">
-          Done
-        </mat-button-toggle>
-      </mat-button-toggle-group>
+      <mat-button-toggle value="In progress">
+        In progress
+      </mat-button-toggle>
+      <mat-button-toggle value="Pending">
+        Pending
+      </mat-button-toggle>
+      <mat-button-toggle value="Done">
+        Done
+      </mat-button-toggle>
+    </mat-button-toggle-group>
   </mat-card>
   <br>
 
   <button class="btn btn-primary add" routerLink="/add">Add</button>
+</div> -->
+
+<!-- <mat-form-field>
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+</mat-form-field> -->
+
+<!-- <div class="mat-elevation-z8 container"> -->
+  <!-- <table mat-table [dataSource]="dataSource"> -->
+
+
+    <!-- <ng-container matColumnDef="Name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let row"> {{row.Name}} </td>
+    </ng-container> -->
+
+    <!-- Progress Column -->
+    <!-- <ng-container matColumnDef="Date">
+      <th mat-header-cell *matHeaderCellDef> Date </th>
+      <td mat-cell *matCellDef="let row"> {{row.Date}}% </td>
+    </ng-container> -->
+<!--
+    Name Column
+    <ng-container matColumnDef="Priority">
+      <th mat-header-cell *matHeaderCellDef> Priority </th>
+      <td mat-cell *matCellDef="let row"> {{row.Priority}} </td>
+    </ng-container> -->
+
+    <!-- Color Column -->
+    <!-- <ng-container matColumnDef="Status">
+      <th mat-header-cell *matHeaderCellDef> Status </th>
+      <td mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.status}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> -->
+
+    <!-- Row shown when there is no matching data. -->
+    <!-- <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+    </tr> -->
+  <!-- </table> -->
+
+  <!-- <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator> -->
+<!-- </div> -->
+<button (click)="test()">click</button>
+<div class="container">
+
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="Name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="Date">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Date </th>
+      <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="Status">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+      <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="Priority">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Priority </th>
+      <td mat-cell *matCellDef="let element"> {{element.priority}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
 </div>

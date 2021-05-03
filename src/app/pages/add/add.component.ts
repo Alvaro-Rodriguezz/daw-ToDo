@@ -50,8 +50,8 @@ export class AddComponent implements OnInit {
       this.todo.name = this.nameFormControl.value;
       this.todo.description = this.descriptionFormControl.value;
       this.todo.status = this.statusControl.value.name;
-      this.todo.date = new Date().toUTCString();
-      console.log("")
+      this.todo.date = new Date().toLocaleString();
+      this.todo.priority = this.priorityNumber;
       console.log(this.statusControl.value.name);
       this.toDoService.onAddToDo(this.todo, null);
       this.nameFormControl.reset();
@@ -60,8 +60,6 @@ export class AddComponent implements OnInit {
       this.priorityNumber = 0;
       return;
     }
-    console.log(new Date().toLocaleDateString())
-    console.log(Math.floor(Date.now()/1000));
 
 
 

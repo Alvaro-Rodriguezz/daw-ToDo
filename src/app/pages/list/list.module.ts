@@ -6,6 +6,10 @@ import { ListComponent } from './list.component';
 import { MatSliderModule } from '@angular/material/slider';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
+// import {MatSort} from '@angular/material/sort';
+// import {MatTableDataSource} from '@angular/material/table';
+import {MatTableModule} from '@angular/material/table';
+// import {MatPaginator} from '@angular/material/paginator';
 
 @NgModule({
   declarations: [ListComponent],
@@ -14,7 +18,11 @@ import {MatButtonToggleModule} from '@angular/material/button-toggle';
     ListRoutingModule,
     MatSliderModule,
     MatCardModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    // MatSort,
+    // MatTableDataSource,
+    MatTableModule,
+    // MatPaginator
   ]
 })
 export class ListModule { }

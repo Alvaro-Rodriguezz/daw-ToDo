@@ -32,6 +32,8 @@ export class EditComponent implements OnInit {
     this.toDoService.getToDoId(this.toDoId).subscribe(toDo => {
       this.toDo = toDo;
     });
+    console.log(this.toDo);
+
   }
 
 }

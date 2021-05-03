@@ -16,37 +16,37 @@ export class ToDoService {
   constructor(private angularFirestore: AngularFirestore) {
     this.toDoCollection = this.angularFirestore.collection<ToDo>('toDo');
     this.todo = this.getData();
-}
+  }
 
-getToDoNotDone(): Observable<ToDo[]>{
+  getToDoNotDone(): Observable<ToDo[]>{
+      this.toDoCollection = this.angularFirestore.collection<ToDo>('toDo', ref => {
+          return ref.where('status', '!=', 'Done');
+      });
+      console.log(this.toDoCollection);
+
+      return this.getData();
+  }
+
+  getToDoDone(): Observable<ToDo[]>{
     this.toDoCollection = this.angularFirestore.collection<ToDo>('toDo', ref => {
-        return ref.where('status', '!=', 'Done');
+        return ref.where('status', '==', 'Done');
     });
     console.log(this.toDoCollection);
 
     return this.getData();
-}
+  }
 
-getToDoDone(): Observable<ToDo[]>{
-  this.toDoCollection = this.angularFirestore.collection<ToDo>('toDo', ref => {
-      return ref.where('status', '==', 'Done');
-  });
-  console.log(this.toDoCollection);
-
-  return this.getData();
-}
-
-getData(){
-    return this.toDoCollection.snapshotChanges().pipe(
-      map(actions => {
-        return actions.map(a => {
-          const data = a.payload.doc.data();
-          const id = a.payload.doc.id;
-          return { id, ...data};
-      });
-    })
-  );
-}
+  getData(){
+      return this.toDoCollection.snapshotChanges().pipe(
+        map(actions => {
+          return actions.map(a => {
+            const data = a.payload.doc.data();
+            const id = a.payload.doc.id;
+            return { id, ...data};
+        });
+      })
+    );
+  }
 
   getTodo(){
       return this.todo;
@@ -54,7 +54,6 @@ getData(){
 
 
   deleteToDo(id: string): Promise<void>{
-      //eliminar jugadores
       return this.toDoCollection.doc(id).delete();
   }
 
@@ -80,6 +79,6 @@ getData(){
       } catch (e){
         reject(e.message);
       }
-    })
+    });
   }
 }
