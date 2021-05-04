@@ -32,10 +32,10 @@ export class ListComponent implements OnInit {
     this.dataSource.sort = this.sort;
   }
 
-  public onValChange(val: string, todo:ToDo, id: string) {
-    todo.status = val;
-    this.toDoService.onAddToDo(todo, id);
-  }
+  // public onValChange(val: string, todo:ToDo, id: string) {
+  //   todo.status = val;
+  //   this.toDoService.onAddToDo(todo, id);
+  // }
 
   onDelete(id: string){
     this.toDoService.deleteToDo(id);

@@ -1,8 +1,44 @@
 <div class="container">
-  <mat-card *ngFor="let item of (todo | async)"  style="margin-top: 20px; position: relative;">{{item.name}}
-    <button class="btn btn-primary"  [routerLink]="['/details', item.id]">Details</button>
-  </mat-card>
-  <br>
 
-  <button class="btn btn-primary add" routerLink="/add">Add</button>
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+      <td mat-cell *matCellDef="let element" [routerLink]="['/details', element.id]"> {{element.name}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+      <td mat-cell *matCellDef="let element" [routerLink]="['/details', element.id]"> {{element.status}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="priority">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Date </th>
+      <td mat-cell *matCellDef="let element" [routerLink]="['/details', element.id]"> {{element.date}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Edit </th>
+      <td mat-cell *matCellDef="let element">     <button mat-icon-button matTooltip="Click to Edit" class="iconbutton" color="primary" [routerLink]="['/edit', element.id]">
+        <mat-icon aria-label="Edit">edit</mat-icon>
+      </button> </td>
+
+    </ng-container>
+
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Delete </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-fab color="primary" aria-label="Example icon button with a delete icon" (click)="onDelete(element.id)">
+        <mat-icon>delete</mat-icon>
+      </button> </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <button mat-fab color="primary" class="add" aria-label="Example icon button with a delete icon" routerLink="/add">
+    <mat-icon>+</mat-icon>
+  </button>
 </div>

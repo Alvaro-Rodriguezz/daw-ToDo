@@ -3,7 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { HistoricalRoutingModule } from './historical-routing.module';
 import { HistoricalComponent } from './historical.component';
-import {MatCardModule} from '@angular/material/card';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatTableModule} from '@angular/material/table';
+import {MatSortModule} from '@angular/material/sort';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -11,7 +17,13 @@ import {MatCardModule} from '@angular/material/card';
   imports: [
     CommonModule,
     HistoricalRoutingModule,
-    MatCardModule
+    MatButtonToggleModule,
+    MatSortModule,
+    MatTableModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatIconModule,
+    MatSnackBarModule
   ]
 })
 export class HistoricalModule { }
