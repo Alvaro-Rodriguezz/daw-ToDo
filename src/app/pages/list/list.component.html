@@ -16,8 +16,8 @@
 
     <!-- Symbol Column -->
     <ng-container matColumnDef="priority">
-      <th mat-header-cell *matHeaderCellDef mat-sort-header> Priority </th>
-      <td mat-cell *matCellDef="let element" [routerLink]="['/details', element.id]"> {{element.priority}} </td>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Date </th>
+      <td mat-cell *matCellDef="let element" [routerLink]="['/details', element.id]"> {{element.date}} </td>
     </ng-container>
 
     <ng-container matColumnDef="edit">
@@ -38,5 +38,7 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
-<button class="btn btn-primary add" routerLink="/add">Add</button>
+  <button mat-fab color="primary" class="add" aria-label="Example icon button with a delete icon" routerLink="/add">
+    <mat-icon>+</mat-icon>
+  </button>
 </div>
