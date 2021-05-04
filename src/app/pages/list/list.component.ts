@@ -4,6 +4,7 @@ import { ToDo } from 'src/app/models/todo.model';
 import { ToDoService } from 'src/app/services/to-do.service';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -17,7 +18,8 @@ export class ListComponent implements OnInit {
   displayedColumns: string[] = ['name', 'priority', 'status', 'edit', 'delete'];
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private toDoService: ToDoService) { }
+  constructor(private toDoService: ToDoService,
+    private snackBar: MatSnackBar) { }
 
   dataSource = new MatTableDataSource();
 
@@ -37,5 +39,9 @@ export class ListComponent implements OnInit {
 
   onDelete(id: string){
     this.toDoService.deleteToDo(id);
+    this.snackBar.open('Deleted succedfully', '', {
+      duration: 3000,
+      panelClass: ['simple-snack-bar']
+    });
   }
 }

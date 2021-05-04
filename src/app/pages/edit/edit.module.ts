@@ -3,13 +3,26 @@ import { CommonModule } from '@angular/common';
 
 import { EditRoutingModule } from './edit-routing.module';
 import { EditComponent } from './edit.component';
+import {MatInputModule} from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { MatSliderModule } from '@angular/material/slider';
 
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [EditComponent],
   imports: [
     CommonModule,
-    EditRoutingModule
+    EditRoutingModule,
+    MatInputModule,
+    MatSelectModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatSliderModule,
+    MatButtonToggleModule,
+    MatSnackBarModule
   ]
 })
 export class EditModule { }

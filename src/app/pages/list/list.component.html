@@ -22,7 +22,7 @@
 
     <ng-container matColumnDef="edit">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Edit </th>
-      <td mat-cell *matCellDef="let element">     <button mat-icon-button matTooltip="Click to Edit" class="iconbutton" color="primary">
+      <td mat-cell *matCellDef="let element">     <button mat-icon-button matTooltip="Click to Edit" class="iconbutton" color="primary" [routerLink]="['/edit', element.id]">
         <mat-icon aria-label="Edit">edit</mat-icon>
       </button> </td>
 

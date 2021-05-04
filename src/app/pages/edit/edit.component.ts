@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ToDo } from 'src/app/models/todo.model';
 import { ToDoService } from 'src/app/services/to-do.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-historical',
@@ -13,7 +14,9 @@ export class EditComponent implements OnInit {
 
 
   constructor(private activatedRoute: ActivatedRoute,
-              private toDoService: ToDoService) { }
+              private toDoService: ToDoService,
+              private snackBar: MatSnackBar,
+              private router: Router) { }
 
   toDoId = this.activatedRoute.snapshot.paramMap.get('id');
   toDo: ToDo = {
@@ -36,4 +39,17 @@ export class EditComponent implements OnInit {
 
   }
 
+  onValChange(val: string, todo:ToDo, id: string) {
+    todo.status = val;
+  }
+
+  onSave(){
+    this.toDoService.onAddToDo(this.toDo, this.toDoId);
+    this.snackBar.open('Edited succedfully', '', {
+      duration: 3000,
+      panelClass: ['simple-snack-bar']
+    });
+    this.router.navigateByUrl('/list');
+  }
 }
+

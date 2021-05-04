@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';;
 import { ToDoService } from 'src/app/services/to-do.service';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import { ToDo } from '../../models/todo.model';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 interface Status {
   name: string;
 }
@@ -12,7 +14,9 @@ interface Status {
 })
 export class AddComponent implements OnInit {
 
-  constructor(private toDoService: ToDoService) { }
+  constructor(private toDoService: ToDoService,
+              private snackBar: MatSnackBar,
+              private router: Router) { }
 
   todo: ToDo = {
     id: "",
@@ -58,11 +62,12 @@ export class AddComponent implements OnInit {
       this.descriptionFormControl.reset();
       this.statusControl.reset();
       this.priorityNumber = 0;
-      return;
+      this.snackBar.open('Added succedfully', '', {
+        duration: 3000,
+        panelClass: ['simple-snack-bar']
+      });
+      this.router.navigateByUrl('/list');
     }
-
-
-
   }
 
 }
