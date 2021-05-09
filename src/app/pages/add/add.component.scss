@@ -1,9 +1,8 @@
 
 
 .container{
-  display: grid;
-  grid-template-columns: 50% 50%;
-  grid-column-gap: 20px;
+  display: block;
+  text-align: center;
 }
 .version-info {
   font-size: 8pt;

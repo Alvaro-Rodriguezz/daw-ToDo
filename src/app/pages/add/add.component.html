@@ -8,27 +8,16 @@
     </mat-error>
   </mat-form-field>
   <mat-form-field appearance="fill">
-    <mat-label>Status</mat-label>
-    <mat-select [formControl]="statusControl" required>
-      <mat-option *ngFor="let status of status" [value]="status">
-        {{status.name}}
-      </mat-option>
-    </mat-select>
-    <mat-error *ngIf="statusControl.hasError('required')">Please choose a status</mat-error>
-  </mat-form-field>
-  <mat-form-field appearance="fill">
     <mat-label>Description</mat-label>
     <textarea matInput [formControl]="descriptionFormControl"></textarea>
     <mat-error *ngIf="descriptionFormControl.hasError('required')">
-      Email is <strong>required</strong>
+      Description is <strong>required</strong>
     </mat-error>
   </mat-form-field>
   <div>
     <span>Prioridad: </span><b class="gridSizeValue">{{priorityNumber}}</b><br>
     <mat-slider (input)="priorityNumber = $event.value"  [value]="priorityNumber" step="5" min="0" max="100" ></mat-slider>
   </div>
-  <!-- add style="pointer-events: none;" to disable slider -->
-  <!-- https://stackblitz.com/edit/angular-fkzv3z?file=src%2Fapp%2Fslider-formatting-example.html -->
 </div>
 <div class="btn-add">
   <button class="btn btn-danger" (click)="onAddToDo()" >Add toDo</button>

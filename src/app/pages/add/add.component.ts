@@ -4,9 +4,7 @@ import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/form
 import { ToDo } from '../../models/todo.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-interface Status {
-  name: string;
-}
+
 @Component({
   selector: 'app-add',
   templateUrl: './add.component.html',
@@ -27,14 +25,10 @@ export class AddComponent implements OnInit {
     priority: 0
   };
   selectFormControl = new FormControl('', Validators.required);
-  status: Status[] = [
-    {name: 'In progress'},
-    {name: 'Pending'}
-  ];
+
   ngOnInit(): void {
   }
 
-  statusControl = new FormControl('', Validators.required);
 
 
   nameFormControl = new FormControl('', [
@@ -50,17 +44,15 @@ export class AddComponent implements OnInit {
 
 
   onAddToDo(){
-    if(this.descriptionFormControl.valid && this.nameFormControl.valid && this.statusControl.valid){
+    if(this.descriptionFormControl.valid && this.nameFormControl.valid){
       this.todo.name = this.nameFormControl.value;
       this.todo.description = this.descriptionFormControl.value;
-      this.todo.status = this.statusControl.value.name;
+      this.todo.status = "Pending";
       this.todo.date = new Date().toLocaleString();
       this.todo.priority = this.priorityNumber;
-      console.log(this.statusControl.value.name);
       this.toDoService.onAddToDo(this.todo, null);
       this.nameFormControl.reset();
       this.descriptionFormControl.reset();
-      this.statusControl.reset();
       this.priorityNumber = 0;
       this.snackBar.open('Added succedfully', '', {
         duration: 3000,
