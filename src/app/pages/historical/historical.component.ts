@@ -16,7 +16,7 @@ export class HistoricalComponent implements OnInit {
 
 
   todo: Observable<ToDo[]>
-  displayedColumns: string[] = ['name', 'priority', 'status', 'edit', 'delete'];
+  displayedColumns: string[] = ['name', 'priority', 'status', 'delete'];
   @ViewChild(MatSort) sort: MatSort;
 
   constructor(private toDoService: ToDoService,

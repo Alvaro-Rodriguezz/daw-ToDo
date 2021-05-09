@@ -59,7 +59,13 @@ export class AddComponent implements OnInit {
         panelClass: ['simple-snack-bar']
       });
       this.router.navigateByUrl('/list');
+    } else {
+      this.snackBar.open('There was an error', '', {
+        duration: 3000,
+        panelClass: ['simple-snack-bar-red']
+      });
     }
+
   }
 
 }

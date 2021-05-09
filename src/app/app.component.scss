@@ -5,4 +5,16 @@
       justify-content: center;
     }
   }
+  .simple-snack-bar-red {
+    background-color: red;
+    .mat-simple-snackbar {
+      justify-content: center;
+      color: black;
+    }
+  }
+
+}
+
+nav{
+  margin-bottom: 20px;
 }
