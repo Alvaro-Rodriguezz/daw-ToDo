@@ -1,16 +1,20 @@
-<div class="info">
-  <p>Name</p>
-  <p>{{toDo.name}}</p>
-</div>
-<div class="info">
-  <p>Status</p>
-  <p>{{toDo.status}}</p>
-</div>
-<div class="info">
-  <p>Prority: </p>
-  <p>{{toDo.priority}}</p>
-</div>
-<div class="info">
-  <p>Description:</p>
-  <p>{{toDo.description}}</p>
+<div class="container">
+
+  <div class="info">
+    <p>Name: </p>
+    <p class="break">{{toDo.name}}</p>
+  </div>
+  <div class="info">
+    <p>Status: </p>
+    <p class="break">{{toDo.status}}</p>
+  </div>
+  <div class="info">
+    <p>Description:</p>
+    <p class="break">{{toDo.description}}</p>
+  </div>
+  <div>
+
+    <span>Prority: </span><b class="gridSizeValue">{{toDo.priority}}</b><br>
+    <mat-slider [value]="toDo.priority" step="5" min="0" max="100" style="pointer-events: none;"></mat-slider>
+  </div>
 </div>

@@ -1,6 +1,16 @@
 .info{
   display: flex;
   p{
-    margin-right: 10px;
+    margin-right: 5px;
+  }
+  .break{
+    word-break: break-all;
+
+  }
+}
+
+::ng-deep{
+  .mat-slider-track-fill, .mat-slider-thumb{
+    background-color: #404040 !important;
   }
 }
