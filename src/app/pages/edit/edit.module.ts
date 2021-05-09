@@ -10,6 +10,8 @@ import { MatSliderModule } from '@angular/material/slider';
 
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [EditComponent],
@@ -22,7 +24,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     ReactiveFormsModule,
     MatSliderModule,
     MatButtonToggleModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatIconModule,
+    MatButtonModule
   ]
 })
 export class EditModule { }

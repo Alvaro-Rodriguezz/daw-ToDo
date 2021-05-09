@@ -1,7 +1,11 @@
-.info{
-  display: flex;
-  p{
-    margin-right: 10px;
+.container{
+  display: block;
+  text-align: center;
+  .mat-form-field{
+    margin-top: 20px;
+  }
+  .slider{
+    margin-top: 20px;
   }
 }
 

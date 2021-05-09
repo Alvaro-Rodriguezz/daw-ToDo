@@ -1,12 +1,15 @@
 <div class="container">
-  <mat-form-field class="example-full-width">
-    <mat-label>Nombre</mat-label>
-    <input matInput placeholder="Ex. Pizza" [(ngModel)]="toDo.name">
+  <mat-form-field appearance="fill">
+    <mat-label>Name</mat-label>
+    <input matInput placeholder="Ej. Limpiar" [(ngModel)]="toDo.name">
   </mat-form-field>
-  <mat-form-field class="example-full-width">
-    <mat-label>Descripción</mat-label>
-    <input matInput placeholder="Ex. Pizza" [(ngModel)]="toDo.description">
+  <mat-form-field appearance="fill">
+    <mat-label>Description</mat-label>
+    <input matInput placeholder="Ej. Limpiar" [(ngModel)]="toDo.description">
   </mat-form-field>
+  <br>
+  <label>Status</label>
+  <br>
   <mat-button-toggle-group #group="matButtonToggleGroup" [value]="toDo.status" (change)="onValChange(group.value, toDo, toDo.id)" >
     <mat-button-toggle value="In progress">
       In progress
@@ -18,10 +21,10 @@
       Done
     </mat-button-toggle>
   </mat-button-toggle-group>
-  <div>
+  <div class="slider">
 
-    <span>Prioridad: </span><b class="gridSizeValue">{{toDo.priority}}</b><br>
+    <span>Priority: </span><b class="gridSizeValue">{{toDo.priority}}</b><br>
     <mat-slider (input)="toDo.priority = $event.value"  [value]="toDo.priority" step="5" min="0" max="100" ></mat-slider>
   </div>
-  <button (click)="onSave()">Save</button>
+  <button mat-raised-button color="primary" (click)="onSave()">Save</button>
 </div>
