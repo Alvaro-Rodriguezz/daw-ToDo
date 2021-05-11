@@ -10,7 +10,8 @@ import { ToDoService } from 'src/app/services/to-do.service';
 @Component({
   selector: 'app-historical',
   templateUrl: './historical.component.html',
-  styleUrls: ['./historical.component.scss']
+  //Mismo scss que list
+  styleUrls: ['../list/list.component.scss']
 })
 export class HistoricalComponent implements OnInit {
 

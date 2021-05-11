@@ -15,6 +15,31 @@
 
 }
 
-nav{
-  margin-bottom: 20px;
+.slide-toogle{
+  margin-top: 8px;
+}
+.dark{
+  background-color: rgb(41, 41, 41);
+  height: 100vh;
+  nav{
+    background-color: #0f0f0f;
+    .navbar-toggler {
+      color: rgb(207, 207, 207);
+      border-color: rgb(235, 235, 235);
+    }
+    .navbar-toggler-icon{
+      background-image: url("../assets/menu_white_24dp.svg");
+    }
+    a{
+      color: white;
+    }
+    mat-slide-toggle{
+      color: white;
+    }
+  }
+
+}
+.light{
+  background-color: #fbfbfb;
+  height: 100vh;
 }
