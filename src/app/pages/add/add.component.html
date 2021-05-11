@@ -2,7 +2,7 @@
   <h1>Add new ToDo</h1>
   <mat-form-field appearance="fill">
     <mat-label>Name</mat-label>
-    <input type="email" matInput [formControl]="nameFormControl"
+    <input type="text" matInput [formControl]="nameFormControl"
            placeholder="Ej. Limpiar">
     <mat-error *ngIf="nameFormControl.hasError('required')">
       Name is <strong>required</strong>
@@ -10,7 +10,7 @@
   </mat-form-field>
   <mat-form-field appearance="fill">
     <mat-label>Description</mat-label>
-    <input matInput [formControl]="descriptionFormControl"></input>
+    <input type="text" matInput placeholder="Ej. Limpiar"  [formControl]="descriptionFormControl">
     <mat-error *ngIf="descriptionFormControl.hasError('required')">
       Description is <strong>required</strong>
     </mat-error>
