@@ -10,7 +10,7 @@
   </mat-form-field>
   <mat-form-field appearance="fill">
     <mat-label>Description</mat-label>
-    <textarea matInput [formControl]="descriptionFormControl"></textarea>
+    <input matInput [formControl]="descriptionFormControl"></input>
     <mat-error *ngIf="descriptionFormControl.hasError('required')">
       Description is <strong>required</strong>
     </mat-error>
