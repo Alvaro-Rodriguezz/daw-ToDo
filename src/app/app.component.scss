@@ -31,15 +31,17 @@
       background-image: url("../assets/menu_white_24dp.svg");
     }
     a{
-      color: white;
+      color: beige;
     }
     mat-slide-toggle{
-      color: white;
+      color: beige;
     }
   }
-
 }
 .light{
   background-color: #fbfbfb;
   height: 100vh;
+  nav{
+    background-color: rgb(240, 240, 240);
+  }
 }

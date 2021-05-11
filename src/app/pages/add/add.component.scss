@@ -1,16 +1,59 @@
-
-
 .container{
   display: block;
   text-align: center;
+  margin-top: 30px;
 }
-.version-info {
-  font-size: 8pt;
-  float: right;
-  margin: 8px;
-}
+
 .btn-add{
   display: block;
   text-align: center;
   margin-top: 20px;
+}
+.slider{
+  margin-top: 10px;
+}
+
+h1{
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+mat-form-field{
+  padding: 10px;
+}
+
+::ng-deep .dark{
+  h1{
+    color:beige;
+  }
+  .gridSizeValue{
+    color:beige;
+  }
+  .mat-form-field-label{
+    color:beige !important;
+  }
+  .mat-form-field-underline{
+    background-color:beige !important;
+  }
+  .mat-form-field-appearance-fill .mat-form-field-flex{
+    background-color: rgb(161, 161, 161);
+  }
+  h1{
+    color:beige;
+  }
+  .gridSizeValue{
+    color:beige;
+  }
+  .mat-form-field-label{
+    color:beige !important;
+  }
+  .mat-form-field-underline{
+    background-color:beige !important;
+  }
+  .mat-slider-track-background{
+    background-color: rgb(161, 161, 161);
+  }
+  .mat-slider-min-value:not(.mat-slider-thumb-label-showing) .mat-slider-thumb{
+    border-color: beige;
+  }
 }

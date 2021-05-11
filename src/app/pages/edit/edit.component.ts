@@ -8,7 +8,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 @Component({
   selector: 'app-historical',
   templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.scss']
+  styleUrls: ['../add/add.component.scss']
 })
 export class EditComponent implements OnInit {
 

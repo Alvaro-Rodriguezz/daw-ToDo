@@ -1,16 +1,34 @@
-.info{
-  display: flex;
-  p{
-    margin-right: 5px;
+.container{
+  display: grid;
+  text-align: center;
+  h1{
+    margin-bottom: 10px;
   }
-  .break{
-    word-break: break-all;
-
+  .info{
+    display: flex;
+    margin: 0 auto;
+    p{
+      margin-right: 5px;
+      font-weight: bold;
+    }
+    .break{
+      word-break: break-all;
+      font-weight: normal;
+    }
   }
 }
 
-::ng-deep{
-  .mat-slider-track-fill, .mat-slider-thumb{
-    background-color: #404040 !important;
+::ng-deep .dark{
+  p{
+    color: beige;
+  }
+  h1{
+    color: beige;
+  }
+  .gridSizeValue{
+    color:beige;
+  }
+  .mat-slider-track-background{
+    background-color: beige;
   }
 }
