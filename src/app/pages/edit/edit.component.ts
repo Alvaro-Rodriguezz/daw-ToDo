@@ -30,12 +30,9 @@ export class EditComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log("TEST");
-    console.log(this.toDoId);
     this.toDoService.getToDoId(this.toDoId).subscribe(toDo => {
       this.toDo = toDo;
     });
-    console.log(this.toDo);
 
   }
 

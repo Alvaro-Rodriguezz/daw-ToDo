@@ -25,7 +25,6 @@ export class ListComponent implements OnInit {
 
   ngOnInit() {
     this.toDoService.getToDoNotDone().subscribe(toDo => this.dataSource.data = toDo);
-    console.log(this.dataSource)
   }
 
   ngAfterViewInit() {

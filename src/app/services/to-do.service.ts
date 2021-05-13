@@ -22,7 +22,6 @@ export class ToDoService {
       this.toDoCollection = this.angularFirestore.collection<ToDo>('toDo', ref => {
           return ref.where('status', '!=', 'Done');
       });
-      console.log(this.toDoCollection);
 
       return this.getData();
   }
@@ -31,7 +30,6 @@ export class ToDoService {
     this.toDoCollection = this.angularFirestore.collection<ToDo>('toDo', ref => {
         return ref.where('status', '==', 'Done');
     });
-    console.log(this.toDoCollection);
 
     return this.getData();
   }
@@ -72,7 +70,6 @@ export class ToDoService {
       try{
         const id = toDoId || this.angularFirestore.createId();
         toDo.id = id;
-        console.log(id)
         const data = {id, ...toDo};
         const results = await this.toDoCollection.doc(id).set(data);
         resolve(results);

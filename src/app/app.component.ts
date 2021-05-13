@@ -15,13 +15,10 @@ export class AppComponent {
 
   changed(){
     this.checked = !this.checked;
-    console.log(this.checked)
     if(this.checked){
       this.light_dark = "Dark Mode";
-      console.log(this.light_dark);
     } else {
       this.light_dark = "Light Mode";
-      console.log(this.light_dark);
     }
   }
 }
