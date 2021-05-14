@@ -9,12 +9,14 @@
     margin: 0 auto;
     p{
       margin-right: 5px;
-      font-weight: bold;
     }
     .break{
       word-break: break-all;
       font-weight: normal;
     }
+  }
+  .bold{
+    font-weight: bold;
   }
 }
 

@@ -60,7 +60,7 @@ export class AddComponent implements OnInit {
       });
       this.router.navigateByUrl('/list');
     } else {
-      this.snackBar.open('There was an error', '', {
+      this.snackBar.open('Error. There are empty fields', '', {
         duration: 3000,
         panelClass: ['simple-snack-bar-red']
       });

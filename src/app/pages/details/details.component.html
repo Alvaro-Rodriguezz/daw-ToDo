@@ -1,19 +1,19 @@
 <div class="container">
   <h1>Details</h1>
   <div class="info">
-    <p>Name: </p>
+    <p class="bold">Name: </p>
     <p class="break">{{toDo.name}}</p>
   </div>
   <div class="info">
-    <p>Status: </p>
+    <p class="bold">Status: </p>
     <p class="break">{{toDo.status}}</p>
   </div>
   <div class="info">
-    <p>Description:</p>
+    <p class="bold">Description:</p>
     <p class="break">{{toDo.description}}</p>
   </div>
   <div>
-    <span class="gridSizeValue">Prority: </span><b class="gridSizeValue">{{toDo.priority}}</b><br>
+    <span class="gridSizeValue bold">Priority: </span>{{toDo.priority}}<br>
     <mat-slider [value]="toDo.priority" step="5" min="0" max="100" style="pointer-events: none;"></mat-slider>
   </div>
 </div>

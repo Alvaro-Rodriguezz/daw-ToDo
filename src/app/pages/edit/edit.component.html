@@ -12,11 +12,11 @@
   <label class="gridSizeValue">Status</label>
   <br>
   <mat-button-toggle-group #group="matButtonToggleGroup" [value]="toDo.status" (change)="onValChange(group.value, toDo, toDo.id)" >
-    <mat-button-toggle value="In progress">
-      In progress
-    </mat-button-toggle>
     <mat-button-toggle value="Pending">
       Pending
+    </mat-button-toggle>
+    <mat-button-toggle value="In progress">
+      In progress
     </mat-button-toggle>
     <mat-button-toggle value="Done">
       Done

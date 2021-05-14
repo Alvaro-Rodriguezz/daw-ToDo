@@ -41,6 +41,13 @@ export class EditComponent implements OnInit {
   }
 
   onSave(){
+    if(this.toDo.description == "" || this.toDo.name == ""){
+      this.snackBar.open('Error. There are empty fields', '', {
+        duration: 3000,
+        panelClass: ['simple-snack-bar-red']
+      });
+      return;
+    }
     this.toDoService.onAddToDo(this.toDo, this.toDoId);
     this.snackBar.open('Edited succedfully', '', {
       duration: 3000,
