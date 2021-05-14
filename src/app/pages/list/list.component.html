@@ -1,6 +1,6 @@
 <div class="container">
   <h1>ToDo List</h1>
-  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8" id="excel-table">
 
     <!-- Position Column -->
     <ng-container matColumnDef="name">
@@ -38,6 +38,7 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
+  <h4 (click)="onSaveExcel()">Download as Excel Sheet</h4>
   <button mat-fab color="primary" class="add" aria-label="Example icon button with a delete icon" routerLink="/add">
     <mat-icon>+</mat-icon>
   </button>

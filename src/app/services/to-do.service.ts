@@ -2,7 +2,9 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { ToDo } from '../models/todo.model';
-import {map, take} from 'rxjs/operators'
+import {map, take} from 'rxjs/operators';
+import * as XLSX from 'xlsx';
+import * as FileSaver from 'file-saver';
 
 @Injectable({
   providedIn: 'root'
@@ -77,5 +79,20 @@ export class ToDoService {
         reject(e.message);
       }
     });
+  }
+
+  fileName= 'ToDoList.xlsx';
+  EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
+  EXCEL_EXTENSION = '.xlsx';
+
+  public onSaveExcel(info: any): void {
+    const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(info);
+    const workbook: XLSX.WorkBook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };
+    const excelBuffer: any = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
+    this.saveAsExcelFile(excelBuffer, this.fileName);
+  }
+  private saveAsExcelFile(buffer: any, fileName: string): void {
+     const data: Blob = new Blob([buffer], {type: this.EXCEL_TYPE});
+     FileSaver.saveAs(data, fileName );
   }
 }
