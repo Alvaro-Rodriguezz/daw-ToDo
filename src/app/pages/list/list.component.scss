@@ -35,7 +35,9 @@ h4{
   margin-top: 30px;
   cursor: pointer;
 }
-
+.name{
+  word-break: break-all;
+}
 
 ::ng-deep .dark{
   table{
