@@ -12,6 +12,10 @@
     <p class="bold">Description:</p>
     <p class="break">{{toDo.description}}</p>
   </div>
+  <div class="info">
+    <p class="bold">Date:</p>
+    <p class="break">{{toDo.date}}</p>
+  </div>
   <div>
     <span class="gridSizeValue bold">Priority: </span>{{toDo.priority}}<br>
     <mat-slider [value]="toDo.priority" step="5" min="0" max="100" style="pointer-events: none;"></mat-slider>
