@@ -2,7 +2,7 @@
   display: grid;
   text-align: center;
   h1{
-    margin-bottom: 10px;
+    margin-bottom: 40px;
   }
   .info{
     display: flex;
@@ -33,4 +33,10 @@
   .mat-slider-track-background{
     background-color: beige;
   }
+}
+
+button{
+  width: 30%;
+  margin: 0 auto;
+  margin-top: 20px;
 }

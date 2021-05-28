@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { DetailsRoutingModule } from './details-routing.module';
 import { DetailsComponent } from './details.component';
 import { MatSliderModule } from '@angular/material/slider';
+import {MatButtonModule} from '@angular/material/button';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { MatSliderModule } from '@angular/material/slider';
   imports: [
     CommonModule,
     DetailsRoutingModule,
-    MatSliderModule
+    MatSliderModule,
+    MatButtonModule
   ]
 })
 export class DetailsModule { }
